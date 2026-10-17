@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HackerEarth Runner</title>
+<style>
+  body { background:#111; color:#eee; font-family:monospace; padding:20px; }
+  #editor { width:100%; height:200px; background:#222; color:#0f0; padding:10px; border:1px solid #444; }
+  #output { margin-top:20px; background:#222; padding:10px; border:1px solid #444; white-space:pre-wrap; }
+</style>
+</head>
+<body>
+
+<h2>HackerEarth Code Runner</h2>
+
+<textarea id="editor">print("Hello!")</textarea>
+<br>
+<button onclick="runCode()">Run</button>
+
+<pre id="output"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+<script>
+function runCode() {
+  const code = document.getElementById("editor").value;
+
+  Sk.configure({
+    output: text => document.getElementById("output").innerText += text,
+    read: x => Sk.builtinFiles["files"][x]
+  });
+
+  Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code))
+    .catch(err => document.getElementById("output").innerText = err.toString());
+}
+</script>
+
+
+
+</body>
+</html>
