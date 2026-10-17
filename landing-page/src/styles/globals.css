@@ -1,0 +1,46 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #eaf1f4;
+  background-color: #090d12;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  --bg: #090d12;
+  --panel: #111820;
+  --panel-soft: #141c24;
+  --border: #26313b;
+  --text: #eff5f4;
+  --muted: #8d9a9f;
+  --lime: #c2ff74;
+  --orange: #ffae80;
+  --cyan: #65d5d5;
+  --purple: #bdb5ff;
+  --mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --display: 'Space Grotesk', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; min-width: 320px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
+::selection { background: var(--lime); color: #101517; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-family: var(--display); }
+.mono { font-family: var(--mono); }
+.wrap { width: min(1320px, calc(100% - 96px)); margin-inline: auto; }
+.live-light { background: var(--lime); width: 7px; height: 7px; border-radius: 100%; display: inline-block; box-shadow: 0 0 0 4px rgba(194, 255, 116, .09), 0 0 14px rgba(194,255,116,.45); flex: 0 0 auto; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 12px 17px; min-height: 44px; border-radius: 5px; border: 1px solid transparent; font: 700 11px/1.2 var(--mono); letter-spacing: .018em; transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease; white-space: nowrap; }
+.button svg { flex: 0 0 auto; }
+.button:hover { transform: translateY(-2px); }
+.button-primary { color: #111915; background: var(--lime); box-shadow: 0 7px 20px rgba(194,255,116,.075); }
+.button-primary:hover { background: #d5ff9e; box-shadow: 0 8px 28px rgba(194,255,116,.18); }
+.button-outline { background: rgba(255,255,255,.018); border-color: #516257; color: #e7f1e7; }
+.button-outline:hover { border-color: var(--lime); background: #142218; }
+.button-secondary { background: #1a2525; border-color: #405554; color: #d7f5ec; }
+.button-secondary:hover { background: #223332; }
+.button-large { min-height: 53px; padding: 16px 22px; }
+@media (max-width: 900px) { .wrap { width: min(100% - 48px, 1320px); } }
+@media (max-width: 560px) { .wrap { width: calc(100% - 36px); } }
